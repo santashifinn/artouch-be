@@ -1,4 +1,4 @@
-# ARTouch ☜ ReadMe - Backend
+# ARTouch ☜ ReadMe - Back-end
 
 ## What is ARTouch?
 
@@ -79,11 +79,11 @@ Please create the following files in order to connect to the **test-data** and *
 - **.env.test** [Please add the text `PGDATABASE=artouch_test` to the file.]
 - **.env.development** [Please add the text `PGDATABASE=artouch` to the file.]
 
-## How to seed the local database
+### How to seed the local database
 
 - Please enter the command `npm run seed`.
 
-## How to run tests
+### How to run tests
 
 - Please enter the command `npm run test` to run all  tests.
 
