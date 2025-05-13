@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS artouch_test;
+DROP DATABASE IF EXISTS artouch;
+
+CREATE DATABASE artouch_test;
+CREATE DATABASE artouch;

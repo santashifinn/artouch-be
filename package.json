@@ -1,0 +1,24 @@
+{
+  "name": "artouch-be",
+  "version": "1.0.0",
+  "main": "listen.js",
+  "scripts": {
+    "test": "jest",
+    "seed": "node ./db/seeds/run-seed.js",
+    "start": "node listen.js",
+    "dev": "nodemon listen.js"
+  },
+  "keywords": [],
+  "author": "Pip Murphy",
+  "license": "",
+  "description": "The backend for ARTouch, a web app designed to make finding your new favourite artworks a fun - and painless! - experience",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.10",
+    "pg-format": "^1.0.4"
+  }
+}
