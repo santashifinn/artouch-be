@@ -87,5 +87,17 @@
         }
       ]
     }
+  },
+    "POST /api/users/:username/:collection/:work_id": {
+    "description": "Responds with the new favourite work for the given username",
+    "exampleResponse": {
+      "fave": {
+        "fave_id": 6,
+        "username": "Purple",
+        "work_id": "RP-T-1952-12",
+        "collection": "Favourites",
+        "created_at": "2025-03-13 12:12:17.463017"
+      }
+    }
   }
 }

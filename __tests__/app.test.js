@@ -147,3 +147,19 @@ describe("GET /api/users/:username/faves", () => {
       });
   });
 });
+
+describe("POST /api/users/:username/:collection/:work_id", () => {
+  test("201: Responds with the new favourite work for the given username", () => {
+    return request(app)
+      .post("/api/users/amber/Favourites/1942.776")
+      .expect(201)
+
+      .then(({ body: { fave } }) => {
+        expect(typeof fave.fave_id).toBe("number");
+        expect(typeof fave.username).toBe("string");
+        expect(typeof fave.work_id).toBe("string");
+        expect(typeof fave.collection).toBe("string");
+        expect(typeof fave.created_at).toBe("string");
+      });
+  });
+});
