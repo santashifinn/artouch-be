@@ -177,3 +177,14 @@ describe("DELETE /api/users/:username/:collection", () => {
     return request(app).delete("/api/users/amber/Swan Heaven").expect(204);
   });
 });
+
+describe("General error tests", () => {
+  test("404: Responds with error message when given an invalid endpoint", () => {
+    return request(app)
+      .get("/api/oh-noes")
+      .expect(404)
+      .then((response) => {
+        expect(response.body.msg).toBe("Not found");
+      });
+  });
+});
