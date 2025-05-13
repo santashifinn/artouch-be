@@ -7,7 +7,11 @@ const {
   confirmUser,
 } = require("../controllers/users.controller");
 
-const { getFavesByUser, postFave } = require("../controllers/faves.controller");
+const {
+  getFavesByUser,
+  postFave,
+  deleteFave,
+} = require("../controllers/faves.controller");
 
 usersRouter.get("/", getUsers);
 
@@ -20,5 +24,7 @@ usersRouter.post("/signin", confirmUser);
 usersRouter.get("/:username/faves", getFavesByUser);
 
 usersRouter.post("/:username/:collection/:work_id", postFave);
+
+usersRouter.delete("/:username/:collection/:work_id", deleteFave);
 
 module.exports = usersRouter;

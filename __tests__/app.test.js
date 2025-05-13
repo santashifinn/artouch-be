@@ -163,3 +163,11 @@ describe("POST /api/users/:username/:collection/:work_id", () => {
       });
   });
 });
+
+describe("DELETE /api/users/:username/:collection/:work_id", () => {
+  test("204: Deletes the given favourite work in the given collection for the given username", () => {
+    return request(app)
+      .delete("/api/users/amber/Favourites/NG-NM-7687")
+      .expect(204);
+  });
+});

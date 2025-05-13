@@ -22,3 +22,27 @@ exports.addFave = (username, collection, work_id) => {
       return rows[0];
     });
 };
+
+exports.removeFave = (username, collection, work_id) => {
+  return db.query(
+    `DELETE FROM faves
+      WHERE username = $1 AND collection = $2 AND work_id = $3`,
+    [username, collection, work_id]
+  );
+};
+
+exports.checkFaveExists = (collection, work_id) => {
+  return db
+    .query(`SELECT * FROM faves WHERE collection = $1 AND work_id = $2`, [
+      collection,
+      work_id,
+    ])
+    .then(({ rows }) => {
+      if (!rows.length) {
+        return Promise.reject({
+          status: 404,
+          msg: "Not found",
+        });
+      }
+    });
+};
