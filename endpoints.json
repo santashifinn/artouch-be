@@ -1,5 +1,11 @@
 {
   "GET /api": {
-    "description": "serves up a json representation of all the available endpoints of the api"
+    "description": "Responds with a .json file of all available endpoints of this api"
+  },
+  "GET /api/users": {
+    "description": "Responds with a list of users"
+  },
+  "GET /api/users/:username": {
+    "description": "Responds with the requested user"
   }
 }
