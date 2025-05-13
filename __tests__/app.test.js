@@ -23,7 +23,7 @@ describe("GET /api", () => {
 });
 
 describe("GET /api/users", () => {
-  test("200: Responds with a list of users", () => {
+  test("200: Responds with an array of users", () => {
     return request(app)
       .get("/api/users")
       .expect(200)
@@ -125,6 +125,25 @@ describe("POST /api/users/signin", () => {
 
       .then(({ body }) => {
         expect(body.msg).toBe("Please enter your username and password.");
+      });
+  });
+});
+
+describe("GET /api/users/:username/faves", () => {
+  test("200: Responds with an array of favourite works for the given username", () => {
+    return request(app)
+      .get("/api/users/amber/faves")
+      .expect(200)
+
+      .then(({ body: { faves } }) => {
+        expect(faves.length).toBe(3);
+        faves.forEach((fave) => {
+          expect(typeof fave.fave_id).toBe("number");
+          expect(typeof fave.username).toBe("string");
+          expect(typeof fave.work_id).toBe("string");
+          expect(typeof fave.collection).toBe("string");
+          expect(typeof fave.created_at).toBe("string");
+        });
       });
   });
 });
