@@ -78,8 +78,15 @@ Please create the following files in order to connect to the **test-data** and *
 
 - **.env.test** [Please add the text `PGDATABASE=artouch_test` to the file.]
 - **.env.development** [Please add the text `PGDATABASE=artouch` to the file.]
-- Clear instructions on how to run the project locally, including setup steps (e.g., installing dependencies and configuring environment variables).
 
-### Thank-yous
+## How to seed the local database
+
+- Please enter the command `npm run seed`.
+
+## How to run tests
+
+- Please enter the command `npm run test` to run all  tests.
+
+## Thank-yous
 
 Thank you firstly to Northcoders/Launchpad for requesting this project, to you for taking the time to check it out, and to my cat Amber for her unwavering support and snuggles while bringing ARTouch to life.
