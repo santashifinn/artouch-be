@@ -46,3 +46,27 @@ exports.checkFaveExists = (collection, work_id) => {
       }
     });
 };
+
+exports.removeCollection = (username, collection) => {
+  return db.query(
+    `DELETE FROM faves
+      WHERE username = $1 AND collection = $2`,
+    [username, collection]
+  );
+};
+
+exports.checkCollectionExists = (username, collection) => {
+  return db
+    .query(`SELECT * FROM faves WHERE username = $1 AND collection = $2`, [
+      username,
+      collection,
+    ])
+    .then(({ rows }) => {
+      if (!rows.length) {
+        return Promise.reject({
+          status: 404,
+          msg: "Not found",
+        });
+      }
+    });
+};

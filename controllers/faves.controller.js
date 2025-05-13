@@ -2,7 +2,9 @@ const {
   selectFavesByUser,
   addFave,
   removeFave,
-  checkFaveExists
+  checkFaveExists,
+  removeCollection,
+  checkCollectionExists,
 } = require("../models/faves.model");
 
 exports.getFavesByUser = (req, res, next) => {
@@ -35,6 +37,22 @@ exports.deleteFave = (req, res, next) => {
   if (work_id) {
     promises.push(checkFaveExists(collection, work_id));
     promises.push(removeFave(username, collection, work_id));
+  }
+  Promise.all(promises)
+    .then(() => {
+      res.status(204).send();
+    })
+    .catch(next);
+};
+
+exports.deleteCollection = (req, res, next) => {
+  const username = req.params.username;
+  const collection = req.params.collection;
+
+  const promises = [];
+  if (collection) {
+    promises.push(checkCollectionExists(username, collection));
+    promises.push(removeCollection(username, collection));
   }
   Promise.all(promises)
     .then(() => {

@@ -6,7 +6,7 @@ ARTouch is a web app designed to make finding your new favourite artworks a fun 
 
 This is the backend repository.
 
-You can find the frontend repository [here](https://github.com/santashifinn/artouch-fe)
+You can find the frontend repository [here](https://github.com/santashifinn/artouch-fe).
 
 ## Endpoints
 
@@ -21,3 +21,4 @@ Available requests:
 - getting a list of favourite works by username
 - adding a new favourite work
 - removing a favourite work
+- deleting an entire collection of favourite works

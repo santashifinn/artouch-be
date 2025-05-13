@@ -171,3 +171,9 @@ describe("DELETE /api/users/:username/:collection/:work_id", () => {
       .expect(204);
   });
 });
+
+describe("DELETE /api/users/:username/:collection", () => {
+  test("204: Deletes the given collection for the given username", () => {
+    return request(app).delete("/api/users/amber/Swan Heaven").expect(204);
+  });
+});

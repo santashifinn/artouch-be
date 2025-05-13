@@ -102,5 +102,8 @@
   },
   "DELETE /api/users/:username/:collection/:work_id": {
     "description": "Deletes the given favourite work in the given collection for the given username"
+  },
+  "DELETE /api/users/:username/:collection": {
+    "description": "Deletes the given collection for the given username"
   }
 }
