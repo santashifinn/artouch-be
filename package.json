@@ -6,7 +6,8 @@
     "test": "jest",
     "seed": "node ./db/seeds/run-seed.js",
     "start": "node listen.js",
-    "dev": "nodemon listen.js"
+    "dev": "nodemon listen.js",
+    "seed-prod": "NODE_ENV=production npm run seed"
   },
   "keywords": [],
   "author": "Pip Murphy",
