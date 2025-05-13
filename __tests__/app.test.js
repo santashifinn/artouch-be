@@ -62,3 +62,37 @@ describe("GET /api/users/:username", () => {
       });
   });
 });
+
+describe("POST /api/users/signup", () => {
+  test("201: Adds a new user to the database", () => {
+    const newUser = {
+      username: "al",
+      email: "al@al.com",
+      password: "cjwikfiawebafkwbjfwks",
+    };
+    return request(app)
+      .post("/api/users/signup")
+      .send(newUser)
+      .expect(201)
+
+      .then(({ body: { user } }) => {
+        expect(user.username).toBe("al");
+        expect(user.email).toBe("al@al.com");
+        expect(user.password_hashed).toEqual(expect.any(String));
+      });
+  });
+  test("400: Responds with an error message when given incomplete required data, ex. missing email", () => {
+    const newUser = {
+      username: "al",
+      password: "cjwikfiawebafkwbjfwks",
+    };
+    return request(app)
+      .post("/api/users/signup")
+      .send(newUser)
+      .expect(400)
+
+      .then(({ body }) => {
+        expect(body.msg).toBe("Please enter username, email and password.");
+      });
+  });
+});

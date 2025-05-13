@@ -3,9 +3,49 @@
     "description": "Responds with a .json file of all available endpoints of this api"
   },
   "GET /api/users": {
-    "description": "Responds with a list of users"
+    "description": "Responds with a list of users",
+    "exampleResponse": {
+      "users": [
+        {
+          "username": "Red",
+          "email": "crimson@vivid.com",
+          "password_hashed": "fhf2bqrty£8rafi$^aw3hf",
+          "created": "2025-05-13T09:39:46.700Z"
+        },
+        {
+          "username": "Blue",
+          "email": "navy@vivid.com",
+          "password_hashed": "hjqdh389thf^38yfqowfaizbs9328$^(",
+          "created": "2024-03-12T12:01:12.500Z"
+        }
+      ]
+    }
   },
   "GET /api/users/:username": {
-    "description": "Responds with the requested user"
+    "description": "Responds with the requested user",
+    "exampleResponse": {
+      "user": {
+        "username": "Green",
+        "email": "lime@vivid.com",
+        "password_hashed": "237rfbw%$£mjkfcewf",
+        "created": "2000-01-01T00:01:01.100Z"
+      }
+    }
+  },
+  "POST /api/users/signup": {
+    "description": "Adds a new user to the database",
+    "exampleInput": {
+      "username": "Pink",
+      "email": "candy@vivid.com",
+      "password": "Ilovesparkles5&"
+    },
+    "exampleResponse": {
+      "user": {
+        "username": "Pink",
+        "email": "candy@vivid.com",
+        "password_hashed": "nqidb73842nfikq!$cjakv1f^",
+        "created": "2025-06-05T08:16:52.400Z"
+      }
+    }
   }
 }

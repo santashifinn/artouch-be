@@ -13,6 +13,7 @@
   "license": "",
   "description": "The backend for ARTouch, a web app designed to make finding your new favourite artworks a fun - and painless! - experience",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
