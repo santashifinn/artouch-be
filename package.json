@@ -13,12 +13,15 @@
   "license": "",
   "description": "The backend for ARTouch, a web app designed to make finding your new favourite artworks a fun - and painless! - experience",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
+    "express": "^5.1.0",
     "pg": "^8.16.0"
   },
   "devDependencies": {
     "jest": "^29.7.0",
     "nodemon": "^3.1.10",
-    "pg-format": "^1.0.4"
+    "pg-format": "^1.0.4",
+    "supertest": "^7.1.1"
   }
 }
