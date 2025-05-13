@@ -96,3 +96,35 @@ describe("POST /api/users/signup", () => {
       });
   });
 });
+
+describe("POST /api/users/signin", () => {
+  test("201: Responds with existing user's username when given correct username and password", () => {
+    const user = {
+      username: "amber",
+      email: "amber@chan.com",
+      password: "ilovesnuggles",
+    };
+    return request(app)
+      .post("/api/users/signin")
+      .send(user)
+      .expect(201)
+
+      .then(({ body }) => {
+        expect(body.user.username).toBe("amber");
+        expect(body.msg).toBe("Login successful.");
+      });
+  });
+  test("400: Responds with an error message when given incomplete required data, ex. missing password", () => {
+    const newUser = {
+      username: "al",
+    };
+    return request(app)
+      .post("/api/users/signin")
+      .send(newUser)
+      .expect(400)
+
+      .then(({ body }) => {
+        expect(body.msg).toBe("Please enter your username and password.");
+      });
+  });
+});

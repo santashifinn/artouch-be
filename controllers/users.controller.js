@@ -25,22 +25,38 @@ exports.getUserByUsername = (req, res, next) => {
 
 exports.createUser = (req, res, next) => {
   const { username, email, password } = req.body;
-  // console.log(username, email, password);
   if (!username || !email || !password) {
     return res
       .status(400)
       .send({ msg: "Please enter username, email and password." });
   }
   bcrypt.hash(password, 10).then((password_hashed) => {
-    // console.log(password_hashed);
     addUser(username, email, password_hashed)
       .then((user) => {
-        // console.log(user);
         res
           .status(201)
-          // .send({ message: `Welcome ${user.username}! You are all signed up.` });
           .send({ user });
       })
       .catch(next);
   });
+};
+
+exports.confirmUser = (req, res, next) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    return res
+      .status(400)
+      .send({ msg: "Please enter your username and password." });
+  }
+  selectUserByUsername(username)
+    .then((user) => {
+      if (user) {
+        bcrypt.compare(password, user.password_hashed).then(() => {
+          return res
+            .status(201)
+            .send({ msg: "Login successful.", user: { username } });
+        });
+      }
+    })
+    .catch(next);
 };

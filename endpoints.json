@@ -47,5 +47,20 @@
         "created": "2025-06-05T08:16:52.400Z"
       }
     }
+  },
+  "POST /api/users/signin": {
+    "description": "Responds with existing user's username when given correct username and password",
+    "exampleInput": {
+      "username": "Yellow",
+      "password": "5un4eVa!!"
+    },
+    "exampleResponse": {
+      "user": {
+        "username": "Yellow"
+      }
+    }
   }
 }
+
+
+
